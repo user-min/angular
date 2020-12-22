@@ -1,11 +1,60 @@
 <!--导航的布局-->
 <!--<p>layout works!</p>-->
+
 <nz-layout>
   <nz-header>header</nz-header>
   <nz-layout>
-    <nz-sider>left sidebar</nz-sider>
-    <nz-content>main content</nz-content>
-    <nz-sider>right sidebar</nz-sider>
+    <nz-sider>
+      <button nz-button nzType="primary" (click)="toggleCollapsed()">
+        <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+      </button>
+      <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
+        <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Navigation One' : ''">
+          <i nz-icon nzType="appstore" nzTheme="outline"></i>
+          <span>Navigation One</span>
+        </li>
+        <li nz-submenu [nzTitle]="'导航一'" nzIcon="appstore">
+          <ul>
+            <li nz-menu-item>Option 1</li>
+            <li nz-menu-item>Option 2</li>
+            <li nz-menu-item>Option 3</li>
+            <li nz-menu-item>Option 4</li>
+          </ul>
+        </li>
+        <li nz-submenu [nzTitle]="'导航一'" nzIcon="appstore">
+          <ul>
+            <li nz-menu-item>Option 5</li>
+            <li nz-menu-item>Option 6</li>
+            <li nz-submenu [nzTitle]="'导航二'" nzIcon="appstore">
+              <ul>
+                <li nz-menu-item>Option 7</li>
+                <li nz-menu-item>Option 8</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu [nzTitle]="'导航一'" nzIcon="appstore">
+          <ul>
+            <li nz-menu-group nzTitle="Item 1">
+              <ul>
+                <li nz-menu-item>Option 9</li>
+                <li nz-menu-item>Option 10</li>
+                <li nz-menu-item>Option 11</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout class="inner-layout">
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
+        <nz-breadcrumb-item>List</nz-breadcrumb-item>
+        <nz-breadcrumb-item>App</nz-breadcrumb-item>
+      </nz-breadcrumb>
+
+      <nz-content>Content</nz-content>
+    </nz-layout>
   </nz-layout>
-  <nz-footer>footer</nz-footer>
 </nz-layout>
+<!--<nz-footer>footer</nz-footer>-->
