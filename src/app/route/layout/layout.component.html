@@ -1,10 +1,9 @@
 <!--导航的布局-->
 <!--<p>layout works!</p>-->
-
 <nz-layout>
   <nz-header>header</nz-header>
-  <nz-layout>
-    <nz-sider>
+  <div class="nz-content">
+    <div class="nz-sider">
       <button nz-button nzType="primary" (click)="toggleCollapsed()">
         <i nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
       </button>
@@ -45,16 +44,10 @@
           </ul>
         </li>
       </ul>
-    </nz-sider>
-    <nz-layout class="inner-layout">
-      <nz-breadcrumb>
-        <nz-breadcrumb-item>Home</nz-breadcrumb-item>
-        <nz-breadcrumb-item>List</nz-breadcrumb-item>
-        <nz-breadcrumb-item>App</nz-breadcrumb-item>
-      </nz-breadcrumb>
+    </div>
+    <div class="nz-content">
+    </div>
+  </div>
 
-      <nz-content>Content</nz-content>
-    </nz-layout>
-  </nz-layout>
 </nz-layout>
 <!--<nz-footer>footer</nz-footer>-->
