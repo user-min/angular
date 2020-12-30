@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 
 
 const routes: Routes = [
+  {path: '', pathMatch: 'full', redirectTo: 'layout'}, // 设置默认页面
   {path: 'layout', component: LayoutComponent},
   {path: 'login', component: LoginComponent},
 ];
