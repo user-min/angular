@@ -9,6 +9,8 @@ import { RouteRoutingModule } from './route-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { SiderMenuComponent } from './layout/sider-menu/sider-menu.component';
+import { TreeComponent } from './tree/tree.component';
+import { BannerComponent } from './banner/banner.component';
 
 
 @NgModule({
@@ -16,6 +18,8 @@ import { SiderMenuComponent } from './layout/sider-menu/sider-menu.component';
     LayoutComponent,
     LoginComponent,
     SiderMenuComponent,
+    TreeComponent,
+    BannerComponent,
   ],
   imports: [
     CommonModule,
