@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  gateway: `http://222.30.194.61/backstage`,
   production: false
 };
 

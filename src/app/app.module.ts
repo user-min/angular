@@ -12,6 +12,7 @@ import zh from '@angular/common/locales/zh';
 
 // 引入自己添加的模块与组件
 import {RouteModule} from './route/route.module';
+import {TinyTestModule} from './routers-master/tiny-test/tiny-test.module';
 import { FirstComponent } from './routeTest/first/first.component';
 import { SecondComponent } from './routeTest/second/second.component';
 
@@ -34,7 +35,8 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
 
     // 引入自己添加的模块
-    RouteModule
+    RouteModule,
+    TinyTestModule,
   ],
   providers: [
     {
