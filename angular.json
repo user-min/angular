@@ -30,7 +30,10 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets/"
-              }
+              },
+              { "glob": "**/*", "input": "node_modules/tinymce", "output": "/assets/tinymce/" },
+              { "glob": "**/*", "input": "src/assets/tinymce/langs", "output": "/assets/tinymce/langs/" }
+
             ],
             "styles": [
               "src/styles.less"

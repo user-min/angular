@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {TINYMCE_SCRIPT_SRC} from '@tinymce/tinymce-angular';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -42,7 +43,8 @@ registerLocaleData(zh);
     {
       provide: NZ_I18N,
       useValue: zh_CN
-    }
+    },
+    { provide: TINYMCE_SCRIPT_SRC, useValue: 'assets/tinymce/tinymce.min.js' }
   ],
   bootstrap: [
     AppComponent

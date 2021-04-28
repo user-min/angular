@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TinymceService} from '../../../core/service/tinymce.service';
 
 @Component({
@@ -8,10 +8,11 @@ import {TinymceService} from '../../../core/service/tinymce.service';
 })
 export class TinyEditorComponent implements OnInit {
 
-  constructor(private tinymceService: TinymceService) { }
-
   // 富文本编辑器配置
   tinymceOption = this.tinymceService.getTinymceOption({height: 250});
+
+  constructor(private tinymceService: TinymceService) {
+  }
 
   ngOnInit() {
   }
