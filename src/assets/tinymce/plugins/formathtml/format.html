@@ -3,45 +3,61 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
   <meta name="format-detection" content="telephone=no">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
   <title>formathtml</title>
   <style>
+    button:focus, input:focus, select:focus {
+      outline: none;
+    }
+
     .background-box {
       position: absolute;
-      width: 500px;
-      height: 400px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-250px, -200px);
-      background-color: #f7f7f7;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
 
     .format-box {
-      position: relative;
-      width: 220px;
-      height: 100px;
-      left: 50%;
-      top: 50%;
-      transform: translate(-110px, -50px);
-      padding: 10px;
+      width: 80%;
+      height: 80%;
+      margin: 0 auto;
     }
 
-    .settings {
+    .format-box > div {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .format-box > div > p {
+      width: 25%;
+      float: left;
+      line-height: 24px;
+      padding-right: 20px;
+    }
+
+    .selects p select {
+      width: 150px;
+      height: 24px;
+      font-size: 15px;
+      padding-left: 4px;
+    }
+
+    .settings p {
       height: 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      margin: 0;
     }
 
-    .settings label {
-      width: 50px;
-    }
-
-    .settings input {
-      width: 150px;
+    .settings p input {
+      width: 142px;
+      height: 20px;
+      margin-left: 5px;
     }
   </style>
 </head>
@@ -49,33 +65,215 @@
 <!--<svg t="1619418953940" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1595" width="24" height="24"><path d="M212.992 526.336 212.992 526.336 212.992 526.336 215.04 526.336 212.992 526.336Z" p-id="1596"></path><path d="M784.384 186.368 239.616 186.368c-90.112 0-163.84 73.728-163.84 163.84l0 327.68c0 90.112 73.728 163.84 163.84 163.84l544.768 0c90.112 0 163.84-73.728 163.84-163.84l0-327.68C948.224 260.096 874.496 186.368 784.384 186.368zM301.056 606.208 266.24 606.208l0-106.496L172.032 499.712l0 106.496L135.168 606.208 135.168 372.736l34.816 0 0 96.256L266.24 468.992l0-96.256 34.816 0L301.056 606.208zM487.424 403.456l-63.488 0 0 202.752L389.12 606.208l0-202.752L327.68 403.456l0-30.72 161.792 0L489.472 403.456zM702.464 606.208l-6.144-98.304c-2.048-30.72-4.096-67.584-2.048-96.256l0 0c-6.144 26.624-16.384 57.344-26.624 86.016l-34.816 106.496-26.624 0-32.768-104.448c-10.24-30.72-18.432-61.44-22.528-88.064l0 0c0 28.672-2.048 65.536-4.096 98.304l-6.144 96.256-32.768 0 16.384-233.472 43.008 0 32.768 102.4c8.192 28.672 16.384 55.296 20.48 79.872l0 0c6.144-24.576 12.288-51.2 22.528-79.872l32.768-102.4 45.056 0L737.28 606.208 702.464 606.208zM905.216 606.208l-124.928 0L780.288 372.736l34.816 0 0 202.752 90.112 0L905.216 606.208z" p-id="1597"></path></svg>-->
 <div class="background-box">
   <div class="format-box">
-    <div class="settings">
-      <label>字体</label>
-      <input type="text" id="fontFamily" >
+    <div class="radios">
+      <p>
+        <span>字体：</span>
+        <input type="radio" name="family" class="family font" id="f1" value="宋体" checked/><label for="f1">宋体</label>
+        <input type="radio" name="family" class="family font" id="f2" value="黑体"/><label for="f2">黑体</label>
+        <input type="radio" name="family" class="family font" id="f3" value="新宋体"/><label for="f3">新宋体</label>
+      </p>
+      <p>
+        <span>字体：</span>
+        <input type="radio" name="size" class="size font" id="s1" value="14pt"/><label for="s1">14pt</label>
+        <input type="radio" name="size" class="size font" id="s2" value="16pt" checked/><label for="s2">16pt</label>
+        <input type="radio" name="size" class="size font" id="s3" value="18pt"/><label for="s3">18pt</label>
+      </p>
+    </div>
+    <div class="selects">
+      <p>
+        <label>字体：</label>
+        <select id="fontFamilySelect"></select>
+      </p>
+      <p>
+        <label>字号：</label>
+        <select id="fontSizeSelect"></select>
+      </p>
     </div>
     <div class="settings">
-      <label>字号</label>
-      <input type="text" id="fontSize" >
+      <p>
+        <label>字体：</label>
+        <input type="text" id="fontFamily">
+      </p>
+      <p>
+        <label>字号：</label>
+        <input type="text" id="fontSize">
+      </p>
+    </div>
+    <div style="margin-top: 30px;">
+      <label>结果：</label>
+      <span id="font_settings"></span>
+    </div>
+    <div style="margin-top: 10px;font-size: 13px;color: red;">
+      注意：请注意您的设置结果！
     </div>
   </div>
 </div>
 <script type="text/javascript">
-  var editor=parent.tinymce.activeEditor;
-  var formatData=parent.formatData;
+  var fontFamily = [
+    {font_family_chinese: '宋体', font_family_english: 'simsun,serif'},
+    {font_family_chinese: '仿宋', font_family_english: 'fangsong,serif'},
+    {font_family_chinese: '新宋体', font_family_english: 'nsimsun,serif'},
+    {font_family_chinese: '黑体', font_family_english: 'simhei,sans-serif'},
+    {font_family_chinese: '隶书', font_family_english: 'lisu,sans-serif'},
+
+
+    {font_family_chinese: '幼圆', font_family_english: 'youyuan,sans-serif'},
+    {font_family_chinese: '楷体', font_family_english: 'kaiti,sans-serif'},
+    {font_family_chinese: '标楷体', font_family_english: 'dfkai-sb,sans-serif'},
+    {font_family_chinese: '微软雅黑', font_family_english: 'microsoft yahei,sans-serif'},
+    {font_family_chinese: '微软正黑体', font_family_english: 'microsoft jhenghei,sans-serif'},
+
+    {font_family_chinese: '细明体', font_family_english: 'mingliu,serif'},
+    {font_family_chinese: '新细明体', font_family_english: 'pmingliu,serif'},
+    {font_family_chinese: '华文细黑', font_family_english: 'stxihei,sans-serif'},
+    {font_family_chinese: '华文黑体', font_family_english: 'stheiti,sans-serif'},
+    {font_family_chinese: '华文楷体', font_family_english: 'stkaiti,sans-serif'},
+
+    {font_family_chinese: '华文宋体', font_family_english: 'stsong,sans-serif'},
+    {font_family_chinese: '华文中宋', font_family_english: 'stzhongsong,sans-serif'},
+    {font_family_chinese: '华文仿宋', font_family_english: 'stfangsong,sans-serif'},
+    {font_family_chinese: '华文彩云', font_family_english: 'stcaiyun,sans-serif'},
+    {font_family_chinese: '华文琥珀', font_family_english: 'sthupo,sans-serif'},
+
+    {font_family_chinese: '华文隶书', font_family_english: 'stliti,sans-serif'},
+    {font_family_chinese: '华文行楷', font_family_english: 'stxingkai,sans-serif'},
+    {font_family_chinese: '华文新魏', font_family_english: 'stxinwei,sans-serif'},
+    {font_family_chinese: '方正舒体', font_family_english: 'fzshuti,sans-serif'},
+    {font_family_chinese: '方正姚体', font_family_english: 'fzyaoti,sans-serif'},
+
+    {font_family_chinese: 'Andale Mono', font_family_english: 'andale mono,monospace'},
+    {font_family_chinese: 'Arial', font_family_english: 'arial,helvetica,sans-serif'},
+    {font_family_chinese: 'Arial Black', font_family_english: 'arial black,sans-serif'},
+    {font_family_chinese: 'Book Antiqua', font_family_english: 'book antiqua,palatino,serif'},
+    {font_family_chinese: 'Comic Sans MS', font_family_english: 'comic sans ms,sans-serif'},
+
+    {font_family_chinese: 'Courier New', font_family_english: 'courier new,courier,monospace'},
+    {font_family_chinese: 'Georgia', font_family_english: 'georgia,palatino,serif'},
+    {font_family_chinese: 'Helvetica', font_family_english: 'helvetica,arial,sans-serif'},
+    {font_family_chinese: 'Impact', font_family_english: 'impact,sans-serif'},
+    {font_family_chinese: 'Symbol', font_family_english: 'symbol'},
+
+    {font_family_chinese: 'Tahoma', font_family_english: 'tahoma,arial,helvetica,sans-serif'},
+    {font_family_chinese: 'Terminal', font_family_english: 'terminal,monaco,monospace'},
+    {font_family_chinese: 'Times New Roman', font_family_english: 'times new roman,times,serif'},
+    {font_family_chinese: 'Trebuchet MS', font_family_english: 'trebuchet ms,geneva,sans-serif'},
+    {font_family_chinese: 'Verdana', font_family_english: 'verdana,geneva,sans-serif'},
+
+    {font_family_chinese: 'Webdings', font_family_english: 'webdings'},
+    {font_family_chinese: 'Wingdings', font_family_english: 'wingdings,zapf dingbats'}
+  ];
+  var fontSize = [
+    {font_size: '8pt'},
+    {font_size: '10pt'},
+    {font_size: '12pt'},
+    {font_size: '14pt'},
+    {font_size: '18pt'},
+    {font_size: '24pt'},
+    {font_size: '36pt'}
+  ];
+  var editor = parent.tinymce.activeEditor;
+  var formatData = parent.formatData;
   formatData.data = {
-    fontFamily : '0',
+    fontFamily: '0',
     fontSize: '0'
   };
 
-  document.getElementById('fontFamily').onchange = function() {
-    formatData.data.fontFamily = document.getElementById('fontFamily').value;
-    console.log(formatData.data);
+  function result() {
+    document.getElementById('font_settings').innerHTML = formatData.data.fontFamily + ',' + formatData.data.fontSize;
+    // if (formatData.data.fontSize.indexOf('pt') === -1) {
+    //   document.getElementById('font_settings').style.color = 'red';
+    //   alert('请为字体添加单位！')
+    // }if (formatData.data.fontSize.indexOf('pt') !== -1) {
+    //   document.getElementById('font_settings').style.color = '#333333';
+    // }
+  }
+
+  // 监听单选框变化
+  var inputList = document.getElementsByClassName('font');
+  for (var i3 = 0; i3 < inputList.length; i3++) {
+    var value = inputList[i3];
+    value.onchange = function() {
+      setDefaultSettings();
+    };
+  }
+
+  //监听下拉选变化
+  document.getElementById('fontFamilySelect').onchange = function() {
+    var selectedIndex = document.getElementById('fontFamilySelect').selectedIndex;
+    formatData.data.fontFamily = fontFamily[selectedIndex].font_family_chinese;
+    result();
   };
-  document.getElementById('fontSize').onchange = function() {
-    formatData.data.fontSize = document.getElementById('fontSize').value;
-    console.log(formatData.data);
+  document.getElementById('fontSizeSelect').onchange = function() {
+    var selectedIndex = document.getElementById('fontSizeSelect').selectedIndex;
+    formatData.data.fontSize = fontSize[selectedIndex].font_size;
+    result();
   };
 
+  //监听输入框变化
+  document.getElementById('fontFamily').onchange = function() {
+    formatData.data.fontFamily = document.getElementById('fontFamily').value;
+    result();
+  };
+  document.getElementById('fontSize').onchange = function() {
+    var reg = /^[1-9]\d*(pt|px|rem|em|%){1}$/g;
+    var value = document.getElementById('fontSize').value;
+    if (reg.test(value)) {
+      formatData.data.fontSize = value;
+      result();
+      return;
+    }
+    if (!reg.test(value)) {
+      alert('您输入的字号格式不正确，请您确认你输入的数据是否是整数，是否包含单位pt或px');
+    }
+  }
+
+  //初始化下拉框
+  function setFontFamilySelect() {
+    var html = '';
+    for (var index = 0; index < fontFamily.length; index++) {
+      /*<option value ="volvo">Volvo</option>*/
+      var temp = '<option value ="' + fontFamily[index].font_family_chinese + '">' + fontFamily[index].font_family_chinese + '</option>';
+      html = html + temp;
+    }
+    document.getElementById('fontFamilySelect').innerHTML = html;
+  }
+
+  //初始化下拉框
+  function setFontSizeSelect() {
+    var html = '';
+    for (var index = 0; index < fontSize.length; index++) {
+      var temp = '<option value ="' + fontSize[index].font_size + '">' + fontSize[index].font_size + '</option>';
+      html = html + temp;
+    }
+    document.getElementById('fontSizeSelect').innerHTML = html;
+  }
+
+  //单选设置
+  function setDefaultSettings() {
+    var familyList = document.getElementsByClassName('family');
+    for (var i1 = 0; i1 < familyList.length; i1++) {
+      var item = familyList[i1];
+      if (item.checked) {
+        formatData.data.fontFamily = item.value;
+      }
+    }
+
+    var sizeList = document.getElementsByClassName('size');
+    for (var i2 = 0; i2 < sizeList.length; i2++) {
+      var item2 = sizeList[i2];
+      if (item2.checked) {
+        formatData.data.fontSize = item2.value;
+      }
+    }
+
+    result();
+  }
+
+  window.onload = function() {
+    setFontFamilySelect();
+    setFontSizeSelect();
+    setDefaultSettings();
+  };
 </script>
 </body>
 </html>

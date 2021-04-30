@@ -4,7 +4,7 @@ import {TinyEditorComponent} from './tiny-editor/tiny-editor.component';
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'tiny-editor'}, // 设置默认页面
+  // {path: '', pathMatch: 'full', redirectTo: 'tiny-editor'}, // 设置默认页面
   {path: 'tiny-editor', component: TinyEditorComponent},
 ];
 
