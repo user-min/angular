@@ -10,12 +10,14 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import {OtherModule} from './other/other.module';
 
 // 引入自己添加的模块与组件
 import {RouteModule} from './route/route.module';
 import {TinyTestModule} from './routers-master/tiny-test/tiny-test.module';
 import { FirstComponent } from './routeTest/first/first.component';
 import { SecondComponent } from './routeTest/second/second.component';
+import { FormComponent } from './other/form/form.component';
 
 registerLocaleData(zh);
 
@@ -25,7 +27,8 @@ registerLocaleData(zh);
 
     // 引入自己添加的组件
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ registerLocaleData(zh);
     // 引入自己添加的模块
     RouteModule,
     TinyTestModule,
+    OtherModule
   ],
   providers: [
     {

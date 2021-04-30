@@ -14,6 +14,9 @@ import { TinyEditorComponent } from './tiny-editor/tiny-editor.component';
     TinyEditorComponent,
     CropperComponent
   ],
+  exports: [
+    CropperComponent
+  ],
   imports: [
     CommonModule,
     TinyTestRoutingModule,

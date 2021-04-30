@@ -1,0 +1,35 @@
+<!--<p>form works!</p>-->
+<nz-form-item>
+  <nz-form-label nzXs="24" nzSm="2" nzFor="picFileId" [nzRequired]="isRequired.picFileId">关联图
+  </nz-form-label>
+  <nz-form-control nzXs="24" nzSm="22" style="position: relative" [nzErrorTip]="isRequired.picFileId?'请上传关联图！':null">
+    <nz-spin [nzSpinning]="uploadImgParam.uploadImgLoading" style="height: auto;">
+      <a *ngIf="uploadImgParam.picHomeFile" href="javascript:;" style="color:red;position: absolute;left: 375px;top: 27px;z-index: 50;" (click)="deleteCurretnImage()">删除图片</a>
+      <div class="upload-box">
+        <ng-container> <!--*ngIf="!uploadImgParam.picHomeFile"-->
+          <i nz-icon nzType="plus"></i>
+          <div class="ant-upload-text">图片裁剪上传</div>
+        </ng-container>
+      </div>
+      <p class="upload-file-box">
+        <app-cropper (confirm)="confirm($event)" class=""></app-cropper>
+      </p>
+      <nz-upload
+        nzAccept="image/gif,image/jpeg,image/png,image/jpg"
+        nzListType="picture-card"
+        [(nzFileList)]="imgList"
+        [nzShowUploadList]="false"
+        [nzBeforeUpload]="beforeUploadLogo"
+        class="direct-upload"
+      >
+        <ng-container><!--*ngIf="!uploadImgParam.picHomeFile"-->
+          <i nz-icon nzType="plus"></i>
+          <div class="ant-upload-text">直接上传图片</div>
+        </ng-container>
+      </nz-upload>
+      <nz-avatar [nzShape]="'square'" [nzSize]="102" [nzSrc]="uploadImgParam.picHomeFile" class="show-img"
+                 *ngIf="uploadImgParam.picHomeFile"></nz-avatar>
+    </nz-spin>
+  </nz-form-control>
+
+</nz-form-item>
