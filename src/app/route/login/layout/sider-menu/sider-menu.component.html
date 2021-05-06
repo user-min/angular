@@ -4,10 +4,12 @@
       nz-tooltip
       nzPlacement="right"
       *ngIf="menu.childList.length === 0"
-      [routerLink]="menu.router"
       [nzTitle]="isCollapsed ? menu.title : ''"
       [title]="menu.title"
-      [class.selectedMenuOn]="menu.selected">
+      [routerLink]="menu.router"
+      [class.selectedMenuOn]="menu.selected"
+      (click)="selectedMenu(menu)">
+    <!--      -->
     <i nz-icon [nzType]="menu.icon" nzTheme="outline"></i>{{isCollapsed ? '' : menu.title}}
   </li>
   <li nz-submenu

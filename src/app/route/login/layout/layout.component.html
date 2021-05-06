@@ -15,9 +15,11 @@
       </ul>
     </div>
     <div class="nz-content">
-      cefd
+      <nz-card>
+        <nz-breadcrumb class="breadcrumb-bar" [nzAutoGenerate]="true" [nzRouteLabel]="'breadcrumb'"></nz-breadcrumb>
+      </nz-card>
+      <router-outlet></router-outlet>
     </div>
   </div>
-
 </nz-layout>
 <!--<nz-footer>footer</nz-footer>-->

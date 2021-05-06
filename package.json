@@ -26,7 +26,9 @@
     "tinymce": "^5.3.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1",
-    "ngx-image-cropper": "^3.3.5"
+    "ngx-image-cropper": "^3.3.5",
+    "js-base64": "^2.6.3",
+    "angular2-uuid": "^1.1.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.29",

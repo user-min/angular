@@ -10,14 +10,15 @@ import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {registerLocaleData} from '@angular/common';
 import zh from '@angular/common/locales/zh';
-import {OtherModule} from './other/other.module';
+import {ServiceModule} from './core/service/service.module';
+import {CurrencyModule} from './route/currency/currency.module';
+import {ElementModule} from './route/element/element.module';
 
 // 引入自己添加的模块与组件
-import {RouteModule} from './route/route.module';
-import {TinyTestModule} from './routers-master/tiny-test/tiny-test.module';
-import { FirstComponent } from './routeTest/first/first.component';
-import { SecondComponent } from './routeTest/second/second.component';
-import { FormComponent } from './other/form/form.component';
+import {LayoutComponent} from './route/login/layout/layout.component';
+import {SiderMenuComponent} from './route/login/layout/sider-menu/sider-menu.component';
+import {LoginComponent} from './route/login/login/login.component';
+import {PracticeModule} from './route/practice/practice.module';
 
 registerLocaleData(zh);
 
@@ -26,9 +27,9 @@ registerLocaleData(zh);
     AppComponent,
 
     // 引入自己添加的组件
-    FirstComponent,
-    SecondComponent,
-    FormComponent
+    LoginComponent,
+    LayoutComponent,
+    SiderMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +40,10 @@ registerLocaleData(zh);
     BrowserAnimationsModule,
 
     // 引入自己添加的模块
-    RouteModule,
-    TinyTestModule,
-    OtherModule
+    ElementModule,
+    PracticeModule,
+    CurrencyModule,
+    ServiceModule
   ],
   providers: [
     {
