@@ -8,7 +8,6 @@
   </nz-header>
   <div class="layout">
     <div class="nz-sider" [style.width]="isCollapsed ? '80px' : '200px'">
-
       <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed">
         <app-sider-menu [menus]="siderData" [isCollapsed]="isCollapsed">
         </app-sider-menu>
@@ -16,7 +15,7 @@
     </div>
     <div class="nz-content">
       <nz-card>
-        <nz-breadcrumb class="breadcrumb-bar" [nzAutoGenerate]="true" [nzRouteLabel]="'breadcrumb'"></nz-breadcrumb>
+        <nz-breadcrumb [nzAutoGenerate]="true" [nzRouteLabel]="'breadcrumb'"></nz-breadcrumb>
       </nz-card>
       <router-outlet></router-outlet>
     </div>

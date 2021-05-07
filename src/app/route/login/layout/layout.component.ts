@@ -19,7 +19,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       id: '1',
       icon: 'appstore',
       title: '通用',
-      router: '/currency',
+      // router: '/currency',
       open: false,
       selected: false,
       childList: [
@@ -27,7 +27,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '1-1',
           icon: 'picture',
           title: '图片裁剪',
-          router: '/currency/cropper',
+          router: '/layout/currency/cropper',
           open: false,
           selected: false,
           childList: []
@@ -38,7 +38,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       id: '2',
       icon: 'printer',
       title: '组件',
-      router: '/element',
+      // router: '/element',
       open: false,
       selected: false,
       childList: [
@@ -46,7 +46,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '2-1',
           icon: 'picture',
           title: '轮播图',
-          router: '/element/banner',
+          router: '/layout/element/banner',
           open: false,
           selected: false,
           childList: []
@@ -55,7 +55,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '2-2',
           icon: 'form',
           title: '表单',
-          router: '/element/form',
+          router: '/layout/element/form',
           open: false,
           selected: false,
           childList: []
@@ -64,7 +64,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '2-3',
           icon: 'edit',
           title: '富文本编辑器',
-          router: '/element/tiny-editor',
+          router: '/layout/element/tiny-editor',
           open: false,
           selected: false,
           childList: []
@@ -73,7 +73,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '2-4',
           icon: 'menu',
           title: '显示树',
-          router: '/element/tree',
+          router: '/layout/element/tree',
           open: false,
           selected: false,
           childList: []
@@ -84,7 +84,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       id: '3',
       icon: 'user',
       title: '练习',
-      router: '/practice',
+      // router: '/practice',
       open: false,
       selected: false,
       childList: [
@@ -92,7 +92,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '3-1',
           icon: 'team',
           title: '一',
-          router: '/practice/first',
+          router: '/layout/practice/first',
           open: false,
           selected: false,
           childList: []
@@ -101,7 +101,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
           id: '3-2',
           icon: 'user',
           title: '二',
-          router: '/practice/second',
+          router: '/layout/practice/second',
           open: false,
           selected: false,
           childList: []

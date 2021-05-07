@@ -4,8 +4,11 @@ import {CropperComponent} from './cropper/cropper.component';
 
 
 const routes: Routes = [
-  {path: 'cropper', component: CropperComponent}
+  // 图片裁剪
+  {path: '', redirectTo: 'cropper', pathMatch: 'full'},
+  {path: 'currency/cropper', component: CropperComponent, data: {breadcrumb: '图片裁剪'}}
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
