@@ -19,6 +19,8 @@ export class CropperComponent implements OnInit {
   showButton = false; // 是否显示裁剪按钮
   @Output() private confirm = new EventEmitter<string>();
   isSpinning = false;
+  files = null;
+  imageScale = null;
 
   constructor(private msg: NzMessageService) {
   }
@@ -27,6 +29,7 @@ export class CropperComponent implements OnInit {
   }
 
   fileChangeEvent(event: any): void {
+    this.imageChangedEvent = event;
     console.log('input的值', event.path[0].files);
     if (event.path[0].files.length === 0) {
       this.showButton = false;
@@ -35,8 +38,8 @@ export class CropperComponent implements OnInit {
       this.showButton = true;
     }
     console.log(23333, event);
-    this.imageChangedEvent = event;
     this.isUploaded = true;
+    this.files = null;
     // this.isSpinning = true;
   }
 
@@ -65,6 +68,34 @@ export class CropperComponent implements OnInit {
     }
   }
 
+  changeScale($event) {
+    if (this.imageScale != 0) {
+      const reg = /^[0-9]+(\.[0-9]*)?$/g; // 匹配0，整数，小数
+      const flag1 = reg.test(this.imageScale);
+      const reg2 = /^[1-9]\d*$/; // 匹配整数
+      const ints = this.imageScale.indexOf(':') !== -1 ? this.imageScale.split(':') : this.imageScale.split('：');
+      let flag2 = false;
+      if (ints.length === 2) {
+        flag2 = reg2.test(ints[0]) && reg2.test(ints[1]);
+      }
+      let scale = null;
+      console.log(222,  ints, flag2)
+      if (flag1 || flag2) {
+        if (flag1 === true) {
+          scale = this.imageScale;
+        }
+        if (flag2 === true) {
+          scale = ints[0] / ints[1];
+        }
+        console.log('scale', scale)
+        this.isAspectRatio = true;
+        this.aspectRatio = scale;
+      } else {
+        this.isAspectRatio = false;
+      }
+    }
+  }
+
   confirmCrop() {
     this.showConfirmCrop = true;
     this.isUploaded = false;
@@ -90,6 +121,7 @@ export class CropperComponent implements OnInit {
     this.imageChangedEvent = '';
     this.croppedImage = '';
     this.showConfirmCrop = false;
+    this.isAspectRatio = false;
   }
 
   imageLoaded() {

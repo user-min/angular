@@ -104,7 +104,7 @@
       <span id="font_settings"></span>
     </div>
     <div style="margin-top: 10px;font-size: 13px;color: red;">
-      注意：请为字号添加单位“pt”或“px”，请注意您的设置结果！
+      注意：请为字号添加单位“pt”，请注意您的设置结果！
     </div>
   </div>
 </div>
@@ -211,11 +211,14 @@
 
   //监听输入框变化
   document.getElementById('fontFamily').onchange = function() {
-    formatData.data.fontFamily = document.getElementById('fontFamily').value;
+    var value = document.getElementById('fontFamily').value;
+    if (value !== '') {
+      formatData.data.fontFamily = value;
+    }
     result();
   };
   document.getElementById('fontSize').onchange = function() {
-    var reg = /^[1-9]\d*(pt|px|rem|em|%){1}$/g;
+    var reg = /^[1-9]\d*(pt){1}$/g;
     var value = document.getElementById('fontSize').value;
     if (reg.test(value)) {
       formatData.data.fontSize = value;
@@ -223,7 +226,7 @@
       return;
     }
     if (!reg.test(value)) {
-      alert('您输入的字号格式不正确，请您确认你输入的数据是否是整数，是否包含单位pt或px');
+      alert('您输入的字号格式不正确，请您确认你输入的数据是否是整数，是否包含单位pt');
     }
   }
 
